@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-crisp/resources/theme-crisp-all.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        Ext.QuickTips.init(); // Inisialisasi QuickTips
+
+        Ext.onReady(function () {
+            Ext.create('Ext.Button', {
+                text: 'Click Me', //mengatur text yang ada pada button
+                width: 200, //mengatur panjang
+                height: 100, //mengatur tinggi
+                cls: 'btn', //class untuk style.css
+                renderTo: Ext.getBody(),
+                tooltip: 'Klik untuk mendapatkan pesan semangat!',
+                handler: function () {
+                    Ext.Msg.confirm('Gimana hari ini?', 'Semangat ngga?', function (choise) {
+                        if (choise === 'yes') {
+                            Ext.Msg.prompt('Name', 'Masukan nama kamu:', function (btn, text) {
+                                if (btn === 'ok') {
+                                     Ext.Msg.alert('APA YA?', 'Tetap semangat semoga hari ini lancar '+ text + '❤')
+                                }else{
+                                    Ext.Msg.alert('Peringatan', 'Masukan dulu namanya!!!!')
+                                }
+                            });
+                        } else {
+                            Ext.Msg.alert('Halo', 'Harus Semangat dong, Yang semangat yang semangat!!!');
+                        }
+                    });
+                }
+            });
+
+            // Ext.create('Ext.tab.Panel', {
+            //     height: 400,
+            //     width: 600,
+            //     ui: 'navigation',
+            //     tabBar: {
+            //         layout: {
+            //             pack: 'center'
+            //         },
+            //         border: false
+            //     },
+            //     defaults: {
+            //         iconAlign: 'top',
+            //         bodyPadding: 15
+            //     },
+            //     items: [{
+            //         title: 'Home',
+            //         iconCls: 'fa fa-home', // Menggunakan ikon Font Awesome
+            //         html: 'Ini adalah halaman Home'
+            //     }, {
+            //         title: 'Users',
+            //         iconCls: 'fa fa-users', // Menggunakan ikon Font Awesome
+            //         html: 'Ini adalah halaman Users'
+            //     }, {
+            //         title: 'Groups',
+            //         iconCls: 'fa fa-users-cog', // Menggunakan ikon Font Awesome
+            //         html: 'Ini adalah halaman Groups'
+            //     }, {
+            //         title: 'Settings',
+            //         iconCls: 'fa fa-cogs', // Menggunakan ikon Font Awesome
+            //         html: 'Ini adalah halaman Settings'
+            //     }],
+            //     renderTo: Ext.getBody()
+            // });
+
+        });
+    </script>
+</body>
+
+</html>
